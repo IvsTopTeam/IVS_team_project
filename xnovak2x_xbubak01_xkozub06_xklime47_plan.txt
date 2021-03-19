@@ -1,0 +1,81 @@
+- Stanovené termíny:
+
+    Oficiální termíny: 19.3. 2021 7:00 ráno - odevzdání předběžného plánu projektu
+                       30.4. 2021 7:00 ráno - odevzdání repozitáře, instalátoru, dokumentace...
+                       21.5. 2021           - instalace u zákazníka
+                       22.5. 2021 7:00 ráno - KAŽDÝ odevzdá seznam problémů
+                       24.5. 2021           - obhajoba
+                       
+    Naše termíny: 17.3. - odevzdání plánu projektu
+    		   do konce března:
+    		   - rozhraní knihovny
+    		   - testy
+    		   - nastudovat tvorbu dokumentace
+    		   
+    		   do 10.4.
+    		   - knihovna
+    		   - close-to-finish program+GUI
+    		   - makefile
+    		   
+    		   do 17.4.
+    		   - dokumentace
+    		   - profiling
+    		   - instalátor, odinstalátor
+    		   - mockup   		   
+    		   
+    		   24.4. - ready k odevzdání
+    		   
+    		   potom - seznamy problémů, přípravy obhajoby...
+    		   
+    - termíny máme rozdělené v prohlížečové aplikaci MeisterTask
+
+- přidělení úkolů jednotlivým řešitelům
+
+    Řešitelé:
+    David - xnovak2x
+    Tejd - xkozub06
+    Elinka - xklime47
+    N0body - xbubak01
+    
+    Úkoly:
+    - David - vytvoření repozitáře a zpřístupnění vyučujícím,
+    - Elinka, N0body - matematická knihovna 
+    - Tejd - testy
+    - David, Elinka - program, GUI
+    - Tejd - instalátor, odinstalátor 
+    - N0body - dokumentace
+    - všichni - naplánování a rozdělení práce
+    - N0body - Makefile
+    - kdo bude něco debugovat - debugging
+    - Tejd - mockup další verze programu,
+    - všichni - vyhodnocení rozdílů mezi plánem projektu a skutečností
+    - David - profiling
+
+- zvolené komunikační kanály pro komunikaci v týmu a stanovená pravidla pro komunikaci (jsou-li nějaká)
+
+    Hlavní komunikační kanál: Server na Discordu
+    Záložní komunikační kanály: Facebook, telefon
+
+    Pravidla pro komunikaci (zejména) na discordu:
+    - kontrolovat ideálně 2x denně
+    - na zobrazenou zprávu buď dát reakci, nebo odepsat
+    - když někdo ví, že z nějakého důvodu nebude moct jít na Discord, předem se omluví
+    
+    Dále se každý víkend budeme scházet na společném hovoru na týmovém discordu. Podle potřeby v budoucnu i častěji.	
+    
+- zvolený systém pro správu verzí a hosting + informaci, jak do repozitáře mohou nahlédnout vyučující
+
+   Systém pro správu verzí: git
+   Hosting: Github
+   
+   //informace pro vyučující todo
+   
+- ostatní dohodnuté věci
+
+    platforma - Linux
+    jazyk - Python
+    IDE - PyCharm
+    snake_style
+    jazyk komentářů, identifikátorů atp. - angličtina
+    dokumentace - Doxygen
+    
