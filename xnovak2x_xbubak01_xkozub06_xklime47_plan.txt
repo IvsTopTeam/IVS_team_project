@@ -61,14 +61,15 @@
     - na zobrazenou zprávu buď dát reakci, nebo odepsat
     - když někdo ví, že z nějakého důvodu nebude moct jít na Discord, předem se omluví
     
-    Dále se každý víkend budeme scházet na společném hovoru na týmovém discordu. Podle potřeby v budoucnu i častěji.	
+    Dále se každý víkend budeme scházet na společném videohovoru na týmovém discordu. Podle potřeby v budoucnu i častěji.	
     
 - zvolený systém pro správu verzí a hosting + informaci, jak do repozitáře mohou nahlédnout vyučující
 
    Systém pro správu verzí: git
    Hosting: Github
    
-   //informace pro vyučující todo
+   Na Githubu je vytvořena organizace s názvem IvsTopTeam, do které je přidán krom členů týmu uživatel ivskontrola.
+   Pod touto Github organizací je repozitář s názvem IVS_team_project (název se ještě může změnit, ale není to pravděpodobné), jenž je naším repozitářem pro tento projekt (https://github.com/IvsTopTeam/IVS_team_project).
    
 - ostatní dohodnuté věci
 
