@@ -1,6 +1,6 @@
 import unittest
 
-from TedovaKnihovna import * # just a placeholder so the intellisense doesnt scream at me for a wrong ref
+from TedovaKnihovna import *    # just a placeholder so the intellisense doesnt scream at me for a wrong ref
 
 # TODO  add tests for other methods
 # TODO  find out how to import the entire library properly + change the lib name
@@ -181,17 +181,47 @@ class TestSqrt(unittest.TestCase):
         result = our_sqrt(-20, -2)
         self.assertAlmostEqual(0.0025, result, 20)
 
+    # def test_large_negative(self):
+    #     result = our_sqrt(-100, 10)
+    #     self.assertEqual(100_000_000_000_000_000_000, result)
+    #
+    # def test_float_small(self):
+    #     result = our_sqrt(0.002, 0.001)
+    #     self.assertAlmostEqual(0.99380466263779646744326432913976, result, 20)
+    #
+    # def test_float_large(self):
+    #     result = our_sqrt(10.5, 3.4)
+    #     self.assertAlmostEqual(2_965.129166883078114339313070216, result, 20)
+
+
+class TestAbs(unittest.TestCase):
+    def test_small_num(self):
+        result = our_abs(2)
+        self.assertEqual(2, result)
+
+    def test_large_num(self):
+        result = our_abs(140_000_000)
+        self.assertEqual(140_000_000, result)
+
     def test_large_negative(self):
-        result = our_sqrt(-100, 10)
-        self.assertEqual(100_000_000_000_000_000_000, result)
+        result = our_abs(-140_000_000)
+        self.assertEqual(140_000_000, result)
 
-    def test_float_small(self):
-        result = our_sqrt(0.002, 0.001)
-        self.assertAlmostEqual(0.99380466263779646744326432913976, result, 20)
+    def test_zero(self):
+        result = our_abs(0)
+        self.assertEqual(0, result)
 
-    def test_float_large(self):
-        result = our_sqrt(10.5, 3.4)
-        self.assertAlmostEqual(2_965.129166883078114339313070216, result, 20)
+    def test_negative(self):
+        result = our_abs(-10)
+        self.assertEqual(10, result)
+
+    def test_flaot(self):
+        result = our_abs(140.522222)
+        self.assertAlmostEqual(140.522222, result, 20)
+
+    def test_float_negative(self):
+        result = our_abs(-140.522222)
+        self.assertAlmostEqual(140.522222, result, 20)
 
 
 if __name__ == '__main__':
