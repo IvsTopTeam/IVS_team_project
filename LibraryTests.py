@@ -1,6 +1,6 @@
 import unittest
 
-from TedovaKnihovna import *
+from TedovaKnihovna import * # just a placeholder so the intellisense doesnt scream at me for a wrong ref
 
 # TODO  add tests for other methods
 # TODO  find out how to import the entire library properly + change the lib name
