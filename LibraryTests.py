@@ -9,7 +9,6 @@ from TedovaKnihovna import *    # just a placeholder so the intellisense doesnt 
 
 class TestAdd(unittest.TestCase):
     def test_basic(self):
-        """Test that it can add up two numbers"""
         result = our_add(30, 50)
         self.assertEqual(80, result)
 
