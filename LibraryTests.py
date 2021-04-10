@@ -1,10 +1,6 @@
 import unittest
 
-from TedovaKnihovna import *    # just a placeholder so the intellisense doesnt scream at me for a wrong ref
-
-# TODO  add tests for other methods
-# TODO  find out how to import the entire library properly + change the lib name
-# TODO  find out where using AlmostEqual instead of Equal is a good idea
+from our_library import *
 
 
 class TestAdd(unittest.TestCase):
@@ -173,24 +169,20 @@ class TestSqrt(unittest.TestCase):
         self.assertEqual(10, result)
 
     def test_large_nums(self):
-        result = our_sqrt(3, 100_000_000)
-        self.assertEqual(30_000, result)
+        result = our_sqrt(3, 1_000_000)
+        self.assertEqual(100, result)
 
-    def test_small_negative(self):
-        result = our_sqrt(-20, -2)
-        self.assertAlmostEqual(0.0025, result, 20)
+    def test_large_negative(self):
+        result = our_sqrt(-10, 1000)
+        self.assertAlmostEqual(0.50118723362727228500155418688495, result, 20)
 
-    # def test_large_negative(self):
-    #     result = our_sqrt(-100, 10)
-    #     self.assertEqual(100_000_000_000_000_000_000, result)
-    #
-    # def test_float_small(self):
-    #     result = our_sqrt(0.002, 0.001)
-    #     self.assertAlmostEqual(0.99380466263779646744326432913976, result, 20)
-    #
-    # def test_float_large(self):
-    #     result = our_sqrt(10.5, 3.4)
-    #     self.assertAlmostEqual(2_965.129166883078114339313070216, result, 20)
+    def test_float_small(self):
+        result = our_sqrt(0.2, 0.001)
+        self.assertAlmostEqual(0.000000000000001, result, 20)
+
+    def test_float_large(self):
+        result = our_sqrt(3.4, 100.8)
+        self.assertAlmostEqual(3.8837663777761385677004720432811, result, 20)
 
 
 class TestAbs(unittest.TestCase):
