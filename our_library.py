@@ -1,6 +1,4 @@
-import typing
-
-
+#
 def our_add(num1: float, num2: float) -> float:
     return num1 + num2
 
@@ -18,6 +16,8 @@ def our_div(num1: float, num2: float) -> float:
 
 
 def our_fact(num: int) -> float:    # faktorial lze zavolat pouze s celym cislem!
+    if num < 0:
+        raise Exception
     factorial: int = 1
     for i in range(1, num + 1):
         factorial = factorial * i
