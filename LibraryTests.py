@@ -44,7 +44,7 @@ class TestAdd(unittest.TestCase):
 class TestSub(unittest.TestCase):
     def test_small_nums(self):
         result = our_sub(10, 30)
-        self.assertEqual(40, result)
+        self.assertEqual(-20, result)
 
     def test_big_nums(self):
         result = our_sub(30_000_000, 10_000_000)
