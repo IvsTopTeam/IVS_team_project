@@ -120,3 +120,49 @@ class GUI(QWidget):
 
     def clicked_clear(self):
         print("clear")
+
+    def keyPressEvent(self, key):
+        if key.text() == "0":
+            print("0")
+        elif key.text() == "1":
+            print("1")
+        elif key.text() == "2":
+            print("2")
+        elif key.text() == "3":
+            print("3")
+        elif key.text() == "4":
+            print("4")
+        elif key.text() == "5":
+            print("5")
+        elif key.text() == "6":
+            print("6")
+        elif key.text() == "7":
+            print("7")
+        elif key.text() == "8":
+            print("8")
+        elif key.text() == "9":
+            print("9")
+        elif key.text() == ".":
+            print("dot")
+        elif key.text() == "=":
+            print("eq")
+        elif key.text() == "+":
+            print("add")
+        elif key.text() == "-":
+            print("sub")
+        elif key.text() == "*":
+            print("mul")
+        elif key.text() == "/":
+            print("div")
+        elif key.text() == "!":
+            print("fact")
+        elif key.text() == "|":
+            print("abs")
+        elif key.text() == "^":
+            print("pow")
+        elif key.text() == "r":
+            print("root")
+        elif key.text() == "c":
+            print("clear")
+        elif key.key() == 16777223 or key.key() == 16777219:
+            print("delete")
