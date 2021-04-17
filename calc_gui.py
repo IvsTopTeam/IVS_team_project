@@ -5,7 +5,8 @@ import calc_engine
 
 num1 = "0"
 num2 = " "
-operator = "none"
+operation = "none"
+
 
 class GUI(QWidget):
     def __init__(self):
