@@ -1,14 +1,16 @@
+import math
 import os
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit
 from PyQt5 import uic
-import calc_engine
-
-num1 = "0"
-num2 = " "
-operation = "none"
+import calc_engine as eng
+import our_library as lib
 
 
 class GUI(QWidget):
+    result = float(0)
+    first = True
+    last_operation = "none"
+
     def __init__(self):
         super(GUI, self).__init__()
         directory = os.path.dirname(os.path.abspath(__file__))  # its retarded :( I have to calculate and pass the
@@ -59,115 +61,155 @@ class GUI(QWidget):
         button.clicked.connect(self.clicked_delete)
         button = self.findChild(QPushButton, 'pushButton_clear')
         button.clicked.connect(self.clicked_clear)
+        display_main = self.findChild(QLineEdit, 'lineEdit_main')
+        display_top = self.findChild(QLineEdit, 'lineEdit_top')
 
-    def clicked_0(self, event):
-        calc_engine.clicked_number("0")
+    def clicked_0(self):
+        self.lineEdit_main.setText(eng.clicked_number(self.lineEdit_main.text(), "0"))
 
     def clicked_1(self):
-        calc_engine.clicked_number("1")
+        self.lineEdit_main.setText(eng.clicked_number(self.lineEdit_main.text(), "1"))
 
     def clicked_2(self):
-        calc_engine.clicked_number("2")
+        self.lineEdit_main.setText(eng.clicked_number(self.lineEdit_main.text(), "2"))
 
     def clicked_3(self):
-        calc_engine.clicked_number("3")
+        self.lineEdit_main.setText(eng.clicked_number(self.lineEdit_main.text(), "3"))
 
     def clicked_4(self):
-        calc_engine.clicked_number("4")
+        self.lineEdit_main.setText(eng.clicked_number(self.lineEdit_main.text(), "4"))
 
     def clicked_5(self):
-        calc_engine.clicked_number("5")
+        self.lineEdit_main.setText(eng.clicked_number(self.lineEdit_main.text(), "5"))
 
     def clicked_6(self):
-        calc_engine.clicked_number("6")
+        self.lineEdit_main.setText(eng.clicked_number(self.lineEdit_main.text(), "6"))
 
     def clicked_7(self):
-        calc_engine.clicked_number("7")
+        self.lineEdit_main.setText(eng.clicked_number(self.lineEdit_main.text(), "7"))
 
     def clicked_8(self):
-        calc_engine.clicked_number("8")
+        self.lineEdit_main.setText(eng.clicked_number(self.lineEdit_main.text(), "8"))
 
     def clicked_9(self):
-        calc_engine.clicked_number("9")
+        self.lineEdit_main.setText(eng.clicked_number(self.lineEdit_main.text(), "9"))
 
     def clicked_dot(self):
-        calc_engine.clicked_number(".")
+        self.lineEdit_main.setText(eng.clicked_number(self.lineEdit_main.text(), "."))
 
     def clicked_eq(self):
-        print("eq")
+        if self.first:
+            self.result = float(self.lineEdit_main.text())
+            self.lineEdit_top.setText(" ")
+
+        else:
+            self.result = eng.eval(self.result, self.lineEdit_main.text(), self.last_operation)
+            self.last_operation = "none"
+            self.lineEdit_main.setText(str(round(self.result, 2)))
+            self.lineEdit_top.setText(" ")
+            self.first = True
 
     def clicked_add(self):
-        print("add")
+        self.operation("+")
 
     def clicked_sub(self):
-        print("sub")
+        self.operation("-")
 
     def clicked_mul(self):
-        print("mul")
+        self.operation("×")
 
     def clicked_div(self):
-        print("div")
+        self.operation("÷")
 
     def clicked_pow(self):
-        print("pow")
+        self.operation("ⁿ")
 
     def clicked_root(self):
-        print("root")
+        self.operation("√")
 
     def clicked_fact(self):
-        print("fact")
+        if self.first:
+            self.result = float(self.lineEdit_main.text())
+        # int check
+        if not self.result.is_integer():
+            print("s")
+        self.result = float(lib.our_fact(int(self.result)))
+        self.lineEdit_top.setText(" ")
+        self.lineEdit_main.setText(str(round(self.result, 2)))
+        self.first = False
+        self.last_operation = "none"
 
     def clicked_abs(self):
-        print("abs")
+        if self.first:
+            self.result = float(self.lineEdit_main.text())
+            self.first = False
+        self.result = lib.our_abs(self.result)
+        self.lineEdit_top.setText(" ")
+        self.lineEdit_main.setText(str(round(self.result, 2)))
+        self.last_operation = "none"
 
     def clicked_delete(self):
-        calc_engine.clicked_delete()
+        self.lineEdit_main.setText(eng.clicked_delete(self.lineEdit_main.text()))
 
     def clicked_clear(self):
         print("clear")
 
     def keyPressEvent(self, key):
         if key.text() == "0":
-            calc_engine.clicked_number("0")
+            self.clicked_0()
         elif key.text() == "1":
-            calc_engine.clicked_number("1")
+            self.clicked_1()
         elif key.text() == "2":
-            calc_engine.clicked_number("2")
+            self.clicked_2()
         elif key.text() == "3":
-            calc_engine.clicked_number("3")
+            self.clicked_3()
         elif key.text() == "4":
-            calc_engine.clicked_number("4")
+            self.clicked_4()
         elif key.text() == "5":
-            calc_engine.clicked_number("5")
+            self.clicked_5()
         elif key.text() == "6":
-            calc_engine.clicked_number("6")
+            self.clicked_6()
         elif key.text() == "7":
-            calc_engine.clicked_number("7")
+            self.clicked_7()
         elif key.text() == "8":
-            calc_engine.clicked_number("8")
+            self.clicked_8()
         elif key.text() == "9":
-            calc_engine.clicked_number("9")
+            self.clicked_9()
         elif key.text() == ".":
-            calc_engine.clicked_number(".")
-        elif key.text() == "=":
-            print("eq")
+            self.clicked_dot()
+        elif key.text() == "=" or key.key() == 16777220 or key.key() == 16777221:  # enters (normal an numpad)
+            self.clicked_eq()
         elif key.text() == "+":
-            print("add")
+            self.clicked_add()
         elif key.text() == "-":
-            print("sub")
+            self.clicked_sub()
         elif key.text() == "*":
-            print("mul")
+            self.clicked_mul()
         elif key.text() == "/":
-            print("div")
+            self.clicked_div()
         elif key.text() == "!":
-            print("fact")
+            self.clicked_fact()
         elif key.text() == "|":
-            print("abs")
+            self.clicked_abs()
         elif key.text() == "^":
-            print("pow")
+            self.clicked_pow()
         elif key.text() == "r":
-            print("root")
+            self.clicked_root()
         elif key.text() == "c":
-            print("clear")
-        elif key.key() == 16777223 or key.key() == 16777219:
-            calc_engine.clicked_delete()
+            self.clicked_clear()
+        elif key.key() == 16777223 or key.key() == 16777219:  # backspace and delete
+            self.clicked_delete()
+        # else:
+            # print(key.key())
+
+    def operation(self, which):
+        self.last_operation = which
+        if self.first:
+            self.first = False
+            self.result = float(self.lineEdit_main.text())
+            self.lineEdit_top.setText(str(round(self.result, 2)) + " " + which)
+            self.lineEdit_main.setText("0")
+        else:
+            self.result = eng.eval(self.result, self.lineEdit_main.text(), which)
+            self.lineEdit_top.setText(str(round(self.result, 2)) + " " + which)
+            self.lineEdit_main.setText("0")
