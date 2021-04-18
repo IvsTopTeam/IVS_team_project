@@ -19,8 +19,8 @@ def isfloat(string):
 
 def eval(float_result, string_main, operation):
     result = 0
-    if isfloat(string_main):  # todo better will be if its a number, but how?
-        string_main = "0"
+    # if isfloat(string_main):  # todo better will be if its a number, but how?
+    #    string_main = "0"
 
     if operation == "+":
         result = lib.our_add(float_result, float(string_main))

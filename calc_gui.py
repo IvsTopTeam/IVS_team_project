@@ -224,8 +224,8 @@ class GUI(QWidget):
         print(self.result)
         if self.first:                                                              # if this operation is first
             self.first = False
-            if eng.isfloat(self.lineEdit_main.text()):  # todo better will be if its a number, but how?
-                self.lineEdit_main.setText("0")
+            #if eng.isfloat(self.lineEdit_main.text()):  # todo better will be if its a number, but how?
+            #    self.lineEdit_main.setText("0")
             self.result = float(self.lineEdit_main.text())                          # sets the result to main_display
         else:
             self.result = eng.eval(self.result, self.lineEdit_main.text(), which)
