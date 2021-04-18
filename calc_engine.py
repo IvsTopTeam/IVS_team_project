@@ -1,8 +1,27 @@
 import our_library as lib
 
 
+def result_overflow(result_string):
+    if len(result_string) > 10:
+        print("len")
+        print(len(result_string))
+        return True
+    return False
+
+
+def isfloat(string):
+  try:
+    float(string)
+    return True
+  except ValueError:
+    return False
+
+
 def eval(float_result, string_main, operation):
     result = 0
+    if isfloat(string_main):  # todo better will be if its a number, but how?
+        string_main = "0"
+
     if operation == "+":
         result = lib.our_add(float_result, float(string_main))
     elif operation == "-":

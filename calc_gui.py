@@ -1,4 +1,4 @@
-import os
+# import os
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit
 from PyQt5 import uic
 import calc_engine as eng
@@ -12,9 +12,9 @@ class GUI(QWidget):
 
     def __init__(self):
         super(GUI, self).__init__()
-        directory = os.path.dirname(os.path.abspath(__file__))  # its retarded :( I have to calculate and pass the
-        guipath = os.path.join(directory, 'gui.ui')  # absolute path to gui.ui file
-        uic.loadUi(guipath, self)
+        # directory = os.path.dirname(os.path.abspath(__file__))  # its retarded :( I have to calculate and pass the
+        # guipath = os.path.join(directory, 'gui.ui')             # absolute path to gui.ui file
+        uic.loadUi("gui.ui", self)
 
         button = self.findChild(QPushButton, 'pushButton_0')
         button.clicked.connect(self.clicked_0)
@@ -133,23 +133,30 @@ class GUI(QWidget):
         if self.first:
             self.result = float(self.lineEdit_main.text())
         # int check
-        if not self.result.is_integer():
+        if not self.result.is_integer() or self.result < 0:
             self.lineEdit_main.setText("Error")
             return
         self.result = float(lib.our_fact(int(self.result)))
         self.lineEdit_top.setText(" ")
         self.lineEdit_main.setText(str(round(self.result, 2)))
-        self.first = False
+        self.first = True
         self.last_operation = "none"
 
     def clicked_abs(self):
-        if self.first:
-            self.result = float(self.lineEdit_main.text())
-            self.first = False
-        self.result = lib.our_abs(self.result)
-        self.lineEdit_top.setText(" ")
-        self.lineEdit_main.setText(str(round(self.result, 2)))
+        if self.first:                                          # if this is first operation
+            self.result = float(self.lineEdit_main.text())      # sets the number into result
+            # self.first = False
+        self.result = lib.our_abs(self.result)                  # call abs function on result
+        print(self.result)
+        self.first = True
         self.last_operation = "none"
+        self.lineEdit_top.setText(" ")                          # resets top display text
+        self.lineEdit_main.setText(str(round(self.result, 2)))  # displays result on main display
+
+        if eng.result_overflow(str(round(self.result, 2))):     # if the number is too large to display
+            print("ano")
+            self.clicked_clear()
+            self.lineEdit_main.setText("Too Large!")  # displays error on main display
 
     def clicked_delete(self):
         tmp_str = eng.clicked_delete(self.lineEdit_main.text())
@@ -158,7 +165,11 @@ class GUI(QWidget):
             self.result = 0
 
     def clicked_clear(self):
-        print("clear")
+        self.result = float(0)
+        self.first = True
+        self.last_operation = "none"
+        self.lineEdit_top.setText(" ")
+        self.lineEdit_main.setText("0")
 
     def keyPressEvent(self, key):
         if key.text() == "0":
@@ -187,17 +198,17 @@ class GUI(QWidget):
             self.clicked_eq()
         elif key.text() == "+":
             self.clicked_add()
-        elif key.text() == "-":
+        elif key.text() == "-" or key.text() == "s":
             self.clicked_sub()
-        elif key.text() == "*":
+        elif key.text() == "*" or key.text() == "m":
             self.clicked_mul()
-        elif key.text() == "/":
+        elif key.text() == "/" or key.text() == "d":
             self.clicked_div()
-        elif key.text() == "!":
+        elif key.text() == "!" or key.text() == "f":
             self.clicked_fact()
-        elif key.text() == "|":
+        elif key.text() == "|" or key.text() == "a":
             self.clicked_abs()
-        elif key.text() == "^":
+        elif key.text() == "^" or key.text() == "p":
             self.clicked_pow()
         elif key.text() == "r":
             self.clicked_root()
@@ -210,12 +221,15 @@ class GUI(QWidget):
 
     def operation(self, which):
         self.last_operation = which
-        if self.first:
+        print(self.result)
+        if self.first:                                                              # if this operation is first
             self.first = False
-            self.result = float(self.lineEdit_main.text())
-            self.lineEdit_top.setText(str(round(self.result, 2)) + " " + which)
-            self.lineEdit_main.setText("0")
+            if eng.isfloat(self.lineEdit_main.text()):  # todo better will be if its a number, but how?
+                self.lineEdit_main.setText("0")
+            self.result = float(self.lineEdit_main.text())                          # sets the result to main_display
         else:
             self.result = eng.eval(self.result, self.lineEdit_main.text(), which)
-            self.lineEdit_top.setText(str(round(self.result, 2)) + " " + which)
-            self.lineEdit_main.setText("0")
+
+        self.lineEdit_top.setText(str(round(self.result, 2)) + " " + which)  # sets the top with temporary result
+        self.lineEdit_main.setText("0")  # sets main display to "0" to start entering new number
+        print(self.result)
