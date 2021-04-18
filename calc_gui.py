@@ -1,4 +1,3 @@
-import math
 import os
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit
 from PyQt5 import uic
@@ -113,7 +112,10 @@ class GUI(QWidget):
         self.operation("+")
 
     def clicked_sub(self):
-        self.operation("-")
+        if self.lineEdit_main.text() == "0":
+            self.lineEdit_main.setText("-")
+        else:
+            self.operation("-")
 
     def clicked_mul(self):
         self.operation("×")
@@ -132,7 +134,8 @@ class GUI(QWidget):
             self.result = float(self.lineEdit_main.text())
         # int check
         if not self.result.is_integer():
-            print("s")
+            self.lineEdit_main.setText("Error")
+            return
         self.result = float(lib.our_fact(int(self.result)))
         self.lineEdit_top.setText(" ")
         self.lineEdit_main.setText(str(round(self.result, 2)))
@@ -149,7 +152,10 @@ class GUI(QWidget):
         self.last_operation = "none"
 
     def clicked_delete(self):
-        self.lineEdit_main.setText(eng.clicked_delete(self.lineEdit_main.text()))
+        tmp_str = eng.clicked_delete(self.lineEdit_main.text())
+        self.lineEdit_main.setText(tmp_str)
+        if tmp_str == "-":
+            self.result = 0
 
     def clicked_clear(self):
         print("clear")

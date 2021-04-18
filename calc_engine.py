@@ -1,4 +1,3 @@
-import calc_gui as g
 import our_library as lib
 
 
@@ -45,6 +44,4 @@ def clicked_delete(string):
     if len(string) == 0:
         string = "0"
     return string
-
-
 
