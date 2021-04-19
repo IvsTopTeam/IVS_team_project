@@ -1,4 +1,3 @@
-from decimal import *
 
 
 # funkce dostane dva parametry a vraci jejich soucet
