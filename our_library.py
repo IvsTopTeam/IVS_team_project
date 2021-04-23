@@ -1,5 +1,3 @@
-
-
 # funkce dostane dva parametry a vraci jejich soucet
 def our_add(num1: float, num2: float) -> float:
     return num1 + num2
