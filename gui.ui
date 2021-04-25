@@ -69,6 +69,20 @@ margin-top: 10px;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
 font-size:36px;
+}
+QPushButton#pushButton_help{
+background-color: #212121;
+margin-left: 10px;
+margin-right: 10px;
+padding-left: 5px;
+padding-right: 5px;
+font-size:20px;
+height: 25px;
+margin:0px;
+color: #444443;
+}
+QLabel{
+color: #444443;
 
 }</string>
   </property>
@@ -441,6 +455,43 @@ border: none
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="2" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton_help">
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Táááááááááááááááády bude&lt;/p&gt;&lt;p&gt;nápověda. Doufám že to funguje.&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>HELP</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Made by TopTeam ©2021</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout"/>
    </item>
   </layout>
  </widget>
