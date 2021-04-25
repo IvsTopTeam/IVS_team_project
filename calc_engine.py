@@ -17,7 +17,7 @@ def isfloat(string):
     return False
 
 
-def eval(float_result, string_main, operation):
+def evaluation(float_result, string_main, operation):
     result = 0
     # if isfloat(string_main):  # todo better will be if its a number, but how?
     #    string_main = "0"

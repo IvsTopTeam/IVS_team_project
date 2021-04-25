@@ -1,5 +1,5 @@
 # import os
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit
+from PyQt5.QtWidgets import QWidget, QPushButton, QLineEdit
 from PyQt5 import uic
 import calc_engine as eng
 import our_library as lib
@@ -102,7 +102,7 @@ class GUI(QWidget):
             self.lineEdit_top.setText(" ")
 
         else:
-            self.result = eng.eval(self.result, self.lineEdit_main.text(), self.last_operation)
+            self.result = eng.evaluation(self.result, self.lineEdit_main.text(), self.last_operation)
             self.last_operation = "none"
             self.lineEdit_main.setText(str(round(self.result, 2)))
             self.lineEdit_top.setText(" ")
@@ -228,7 +228,7 @@ class GUI(QWidget):
             #    self.lineEdit_main.setText("0")
             self.result = float(self.lineEdit_main.text())                          # sets the result to main_display
         else:
-            self.result = eng.eval(self.result, self.lineEdit_main.text(), which)
+            self.result = eng.evaluation(self.result, self.lineEdit_main.text(), which)
 
         self.lineEdit_top.setText(str(round(self.result, 2)) + " " + which)  # sets the top with temporary result
         self.lineEdit_main.setText("0")  # sets main display to "0" to start entering new number
