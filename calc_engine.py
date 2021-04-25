@@ -10,17 +10,17 @@ def result_overflow(result_string):
 
 
 def isfloat(string):
-  try:
-    float(string)
-    return True
-  except ValueError:
-    return False
+    try:
+        float(string)
+        return True
+    except ValueError:
+        return False
 
 
 def evaluation(float_result, string_main, operation):
     result = 0
-    # if isfloat(string_main):  # todo better will be if its a number, but how?
-    #    string_main = "0"
+    if not isfloat(string_main):
+        string_main = "0"
 
     if operation == "+":
         result = lib.our_add(float_result, float(string_main))

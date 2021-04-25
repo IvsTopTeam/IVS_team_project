@@ -1,5 +1,5 @@
 # import os
-from PyQt5.QtWidgets import QWidget, QPushButton, QLineEdit
+from PyQt5.QtWidgets import QWidget, QPushButton, QLineEdit, QApplication
 from PyQt5 import uic
 import calc_engine as eng
 import our_library as lib
@@ -98,15 +98,16 @@ class GUI(QWidget):
 
     def clicked_eq(self):
         if self.first:
-            self.result = float(self.lineEdit_main.text())
-            self.lineEdit_top.setText(" ")
-
+            if eng.isfloat(self.lineEdit_main.text()):
+                self.result = float(self.lineEdit_main.text())
+            else:
+                self.result = 0.0
         else:
             self.result = eng.evaluation(self.result, self.lineEdit_main.text(), self.last_operation)
             self.last_operation = "none"
             self.lineEdit_main.setText(str(round(self.result, 2)))
-            self.lineEdit_top.setText(" ")
             self.first = True
+        self.lineEdit_top.setText(" ")
 
     def clicked_add(self):
         self.operation("+")
@@ -131,7 +132,10 @@ class GUI(QWidget):
 
     def clicked_fact(self):
         if self.first:
-            self.result = float(self.lineEdit_main.text())
+            if eng.isfloat(self.lineEdit_main.text()):
+                self.result = float(self.lineEdit_main.text())
+            else:
+                self.result = 0.0
         # int check
         if not self.result.is_integer() or self.result < 0:
             self.lineEdit_main.setText("Error")
@@ -224,8 +228,8 @@ class GUI(QWidget):
         print(self.result)
         if self.first:                                                              # if this operation is first
             self.first = False
-            #if eng.isfloat(self.lineEdit_main.text()):  # todo better will be if its a number, but how?
-            #    self.lineEdit_main.setText("0")
+            if not eng.isfloat(self.lineEdit_main.text()):
+                self.lineEdit_main.setText("0")
             self.result = float(self.lineEdit_main.text())                          # sets the result to main_display
         else:
             self.result = eng.evaluation(self.result, self.lineEdit_main.text(), which)
