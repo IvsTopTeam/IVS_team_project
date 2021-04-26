@@ -103,8 +103,15 @@ class GUI(QWidget):
             else:
                 self.result = 0.0
         else:
-            self.result = eng.evaluation(self.result, self.lineEdit_main.text(), self.last_operation)
-            self.last_operation = "none"
+            error, self.result = eng.evaluation(self.result, self.lineEdit_main.text(), self.last_operation)
+            if error == "Math Error":
+                self.clicked_clear()
+                self.lineEdit_main.setText("Math Error")
+                return
+            if eng.display_num(self.result) == "Too large!":
+                self.clicked_clear()
+                self.lineEdit_main.setText("Too large!")
+                return
             self.lineEdit_main.setText(eng.display_num(self.result))
             self.first = True
         self.lineEdit_top.setText(" ")
@@ -141,13 +148,19 @@ class GUI(QWidget):
                 self.result = 0.0
         # int check
         if not self.result.is_integer() or self.result < 0:
+            self.clicked_clear()
             self.lineEdit_main.setText("Math Error")
             return
         if self.result > max_fact:
+            self.clicked_clear()
             self.lineEdit_main.setText("Too large!")
             return
         self.result = float(lib.our_fact(int(self.result)))
         self.lineEdit_top.setText(" ")
+        if eng.display_num(self.result) == "Too large!":
+            self.clicked_clear()
+            self.lineEdit_main.setText("Too large!")
+            return
         self.lineEdit_main.setText(eng.display_num(self.result))
         self.first = True
         self.last_operation = "none"
@@ -161,6 +174,10 @@ class GUI(QWidget):
         self.first = True
         self.last_operation = "none"
         self.lineEdit_top.setText(" ")                              # resets top display text
+        if eng.display_num(self.result) == "Too large!":
+            self.clicked_clear()
+            self.lineEdit_main.setText("Too large!")
+            return
         self.lineEdit_main.setText(eng.display_num(self.result))    # displays result on main display
 
     def clicked_delete(self):
@@ -226,15 +243,22 @@ class GUI(QWidget):
 
     def operation(self, which):
         self.last_operation = which
-        print(self.result)
         if self.first:                                                              # if this operation is first
             self.first = False
             if not eng.isfloat(self.lineEdit_main.text()):
                 self.lineEdit_main.setText("0")
             self.result = float(self.lineEdit_main.text())                          # sets the result to main_display
         else:
-            self.result = eng.evaluation(self.result, self.lineEdit_main.text(), which)
+            error, self.result = eng.evaluation(self.result, self.lineEdit_main.text(), which)
+            if error == "Math Error":
+                self.clicked_clear()
+                self.lineEdit_main.setText("Math Error")
+                return
+            if eng.display_num(self.result) == "Too large!":
+                self.clicked_clear()
+                self.lineEdit_main.setText("Too large!")
+                return
 
         self.lineEdit_top.setText(eng.display_num(self.result) + " " + which)  # sets the top with temporary result
+
         self.lineEdit_main.setText("0")  # sets main display to "0" to start entering new number
-        print(self.result)
