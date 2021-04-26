@@ -1,8 +1,25 @@
 import our_library as lib
 
+display_limit = 10
+dec_round = 2
+
+
+def display_num(float_result):
+    num_str = "0"
+    num_str = str(round(float_result, dec_round))
+    # if the result is xx.0, it removes the .0 part
+    if round(float_result, dec_round).is_integer():
+        num_str = num_str[:-2]  # removes .0
+
+    # if the number is too long to display it displays too long error
+    if len(num_str) > display_limit:
+        num_str = "Too large!"
+
+    return num_str
+
 
 def result_overflow(result_string):
-    if len(result_string) > 10:
+    if len(result_string) > display_limit:
         print("len")
         print(len(result_string))
         return True
@@ -38,18 +55,21 @@ def evaluation(float_result, string_main, operation):
 
 
 def clicked_number(string, number):
+    if not isfloat(string):
+        string = "0"
+
     if string == "0" and number == ".":
         string = "0."
     elif string != "0" and number == ".":
-        if "." not in string and len(string) < 10:
+        if "." not in string and len(string) < display_limit:
             string = string + number
     elif string == "0" and number == "0":
         string = "0"
     elif string == "0" and number != "0":
         string = number
-    elif string != "0" and len(string) < 10:
+    elif string != "0" and len(string) < display_limit:
         string = string + number
-    elif string != "0" and len(string) >= 10:
+    elif string != "0" and len(string) >= display_limit:
         string = string
 
     return string
