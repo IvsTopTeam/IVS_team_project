@@ -461,7 +461,7 @@ border: none
      <item>
       <widget class="QPushButton" name="pushButton_help">
        <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Táááááááááááááááády bude&lt;/p&gt;&lt;p&gt;nápověda. Doufám že to funguje.&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;p&gt;AFAGDRCTH  GRQH  HTEERAER&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;1) Enter first operator&lt;/p&gt;&lt;p&gt;2) Enter operation&lt;/p&gt;&lt;p&gt;- - - 2.5) if it's one operator operation, you see result&lt;/p&gt;&lt;p&gt;3) If it's two operator operation, enter second operator&lt;/p&gt;&lt;p&gt;4) Push '=', you see result. &lt;/p&gt;&lt;p&gt;- - - 4.5) Or push second operation, then you see &lt;/p&gt;&lt;p&gt;- - - intermediate result on top, which is first operand&lt;/p&gt;&lt;p&gt;- - - for second operation. Now return to 2.5) or 3)&lt;/p&gt;&lt;p&gt;* you can everytime push 'clear' to start with 1)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>HELP</string>
