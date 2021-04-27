@@ -28,6 +28,7 @@ def display_num(float_result):
 
     return num_str
 
+
 ##
 # @brief            This function find out if the string on input can be converted to float
 # @param string     string to find out
