@@ -28,14 +28,6 @@ def display_num(float_result):
 
     return num_str
 
-def result_overflow(result_string):
-    if len(result_string) > display_limit:
-        print("len")
-        print(len(result_string))
-        return True
-    return False
-
-
 ##
 # @brief            This function find out if the string on input can be converted to float
 # @param string     string to find out
