@@ -69,6 +69,20 @@ margin-top: 10px;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
 font-size:36px;
+}
+QPushButton#pushButton_help{
+background-color: #212121;
+margin-left: 10px;
+margin-right: 10px;
+padding-left: 5px;
+padding-right: 5px;
+font-size:20px;
+height: 25px;
+margin:0px;
+color: #444443;
+}
+QLabel{
+color: #444443;
 
 }</string>
   </property>
@@ -441,6 +455,43 @@ border: none
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="2" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton_help">
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;1) Enter first operator&lt;/p&gt;&lt;p&gt;2) Enter operation&lt;/p&gt;&lt;p&gt;- - - 2.5) if it's one operator operation, you see result&lt;/p&gt;&lt;p&gt;3) If it's two operator operation, enter second operator&lt;/p&gt;&lt;p&gt;4) Push '=', you see result. &lt;/p&gt;&lt;p&gt;- - - 4.5) Or push second operation, then you see &lt;/p&gt;&lt;p&gt;- - - intermediate result on top, which is first operand&lt;/p&gt;&lt;p&gt;- - - for second operation. Now return to 2.5) or 3)&lt;/p&gt;&lt;p&gt;* you can everytime push 'clear' to start with 1)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>HELP</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Made by TopTeam ©2021</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout"/>
    </item>
   </layout>
  </widget>
