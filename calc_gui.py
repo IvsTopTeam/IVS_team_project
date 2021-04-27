@@ -193,7 +193,7 @@ class GUI(QWidget):
         self.lineEdit_top.setText(" ")
         self.lineEdit_main.setText("0")
 
-    def keyPressEvent(self, key):
+    def key_press_event(self, key):
         if key.text() == "0":
             self.clicked_0()
         elif key.text() == "1":
@@ -242,14 +242,15 @@ class GUI(QWidget):
             # print(key.key())
 
     def operation(self, which):
-        self.last_operation = which
         if self.first:                                                              # if this operation is first
+            self.last_operation = which
             self.first = False
             if not eng.isfloat(self.lineEdit_main.text()):
                 self.lineEdit_main.setText("0")
             self.result = float(self.lineEdit_main.text())                          # sets the result to main_display
         else:
-            error, self.result = eng.evaluation(self.result, self.lineEdit_main.text(), which)
+            error, self.result = eng.evaluation(self.result, self.lineEdit_main.text(), self.last_operation)
+            self.last_operation = which
             if error == "Math Error":
                 self.clicked_clear()
                 self.lineEdit_main.setText("Math Error")
