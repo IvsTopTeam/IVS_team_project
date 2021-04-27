@@ -19,6 +19,9 @@ class GUI(QWidget):
     first = True                # if I am entering first or second operand
     last_operation = "none"     # remembers last clicked operation
 
+    ##
+    # @brief Constructor of method GUI
+    #
     def __init__(self):
         super(GUI, self).__init__()
         # directory = os.path.dirname(os.path.abspath(__file__))  # if its retarded and cant load the ui file, it has to
