@@ -1,4 +1,5 @@
 import unittest
+import math
 
 from our_library import *
 
@@ -110,6 +111,10 @@ class TestDiv(unittest.TestCase):
         result = our_div(-20_000_000, 1000)
         self.assertEqual(-20_000, result)
 
+    def test_zero(self):
+        result = our_div(1_000, 0)
+        self.assertTrue(math.isnan(result))
+
     def test_float_small(self):
         result = our_div(0.002, 0.001)
         self.assertEqual(2, result)
@@ -133,8 +138,8 @@ class TestFact(unittest.TestCase):
             our_fact(2.5)
 
     def test_negative(self):
-        with self.assertRaises(Exception):
-            our_fact(-10)
+        result = our_fact(-10)
+        self.assertTrue(math.isnan(result))
 
 
 class TestPow(unittest.TestCase):
@@ -183,6 +188,14 @@ class TestSqrt(unittest.TestCase):
     def test_float_large(self):
         result = our_sqrt(3.4, 100.8)
         self.assertAlmostEqual(3.8837663777761385677004720432811, result)
+
+    def test_zero_1(self):
+        result = our_sqrt(0, -1)
+        self.assertTrue(math.isnan(result))
+
+    def test_zero_2(self):
+        result = our_sqrt(-1, 0)
+        self.assertTrue(math.isnan(result))
 
 
 class TestAbs(unittest.TestCase):
