@@ -16,7 +16,6 @@ dec_round = 2           # implementation limit of number of decimal digits to ro
 # @return num_str       string with number to display
 #
 def display_num(float_result):
-    num_str = "0"
     num_str = str(round(float_result, dec_round))
     # if the result is xx.0, it removes the .0 part
     if round(float_result, dec_round).is_integer():
@@ -117,4 +116,3 @@ def clicked_delete(string):
     if len(string) == 0:
         string = "0"
     return string
-
