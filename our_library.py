@@ -30,15 +30,15 @@ def our_fact(num: int) -> float:                # factorial can only be called w
     return factorial
 
 
-# funkce dostane dva parametry, vraci mocninu num^(exp)
+# the function gets two parameters and returns num^(exp)
 def our_pow(num: float, exp: float) -> float:
     if (num == 0) & (exp < 0):
         return float('NaN')
     return num ** exp
 
 
-# funkce dostane dva parametry, vraci jejich num1√(num2)
-def our_sqrt(num1: float, num2: float) -> float:     # nelze zavolat s num1 == 0
+# fthe function gets two parameters and returns num1√(num2)
+def our_sqrt(num1: float, num2: float) -> float:     # cannot call with num1 == 0
     if num1 == 0:
         return float('NaN')
     if (num1 < 0) & (num2 == 0):
@@ -47,7 +47,7 @@ def our_sqrt(num1: float, num2: float) -> float:     # nelze zavolat s num1 == 0
     return root
 
 
-# funkce dostane cislo a vraci jeho absolutni hodnotu
+# the function gets a number and returns its absolute value
 def our_abs(num: float) -> float:
     if num >= 0:
         return num
