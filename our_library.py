@@ -1,27 +1,27 @@
-# funkce dostane dva parametry a vraci jejich soucet
+# the function gets two parameters and returns num1 + num2
 def our_add(num1: float, num2: float) -> float:
     return num1 + num2
 
 
-# funkce dostane dva parametry a vraci jejich rozdil
+# the function gets two parameters and returns num1 - num2
 def our_sub(num1: float, num2: float) -> float:
     return num1 - num2
 
 
-# funkce dostane dva parametry a vraci jejich soucin
+# the function gets two parameters and returns num1 * num2
 def our_mul(num1: float, num2: float) -> float:
     return num1 * num2
 
 
-# funkce dostane dva parametry a vraci jejich podil
+# the function gets two parameters and returns num1 / num2
 def our_div(num1: float, num2: float) -> float:
-    if num2 == 0:           # nelze delit nulou
+    if num2 == 0:                                # cannot be divided by zero
         return float('NaN')
     return num1 / num2
 
 
-# funkce dostane jeden parametr a vraci jeho faktorial
-def our_fact(num: int) -> float:    # faktorial lze zavolat pouze s celym kladnym cislem
+# the function gets one parameter and return its factorial
+def our_fact(num: int) -> float:                # factorial can only be called with a positive integer
     if num < 0:
         return float('NaN')
     factorial: int = 1
