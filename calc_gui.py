@@ -120,7 +120,7 @@ class GUI(QWidget):
         self.operation("+")
 
     def clicked_sub(self):
-        if self.lineEdit_main.text() == "0":
+        if self.lineEdit_main.text() == "0" or self.lineEdit_main.text() == "-":
             self.lineEdit_main.setText("-")
         else:
             self.operation("-")

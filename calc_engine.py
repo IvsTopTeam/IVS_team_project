@@ -1,5 +1,5 @@
 import our_library as lib
-
+# todo entering negative numbers, weird behavior of root second operation
 display_limit = 10
 dec_round = 2
 
@@ -62,7 +62,7 @@ def evaluation(float_result, string_main, operation):
 
 
 def clicked_number(string, number):
-    if not isfloat(string):
+    if not isfloat(string) and string != "-":
         string = "0"
 
     if string == "0" and number == ".":
