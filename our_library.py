@@ -1,26 +1,65 @@
-# the function gets two parameters and returns num1 + num2
+##
+# @file our_library.py
+# @author Alena Klimecká
+# @date 27.4.2020
+# @brief Mathematic library of the calculator
+#
+
+
+
+##
+# @brief Addition ( num1 + num2 )
+#
+# @param num1 First number to be added (augend)
+# @param num2 Second number to be added (addend)
+# @return Returns the sum of two numbers
+#
 def our_add(num1: float, num2: float) -> float:
     return num1 + num2
 
 
-# the function gets two parameters and returns num1 - num2
+
+##
+# @brief Subtraction ( num1 - num2 )
+#
+# @param num1 First number of a subtraction (minuend)
+# @param num2 Second number of a subtraction (subtrahend)
+# @return Returns the difference of two numbers
 def our_sub(num1: float, num2: float) -> float:
     return num1 - num2
 
 
-# the function gets two parameters and returns num1 * num2
+
+##
+# @brief Multiplication ( num1 * num2 )
+#
+# @param num1 First number to by multiplied (multiplicand)
+# @param num2 Second number to by multiplied (multiplier)
+# @return Returns the product of two numbers
+#
 def our_mul(num1: float, num2: float) -> float:
     return num1 * num2
 
 
-# the function gets two parameters and returns num1 / num2
+##
+# @brief Division ( num1 / num2 )
+#
+# @param num1 First number of a division (dividend)
+# @param num2 Second number of a division (divisor)
+# @return Returns the quotient of two numbers
+#
 def our_div(num1: float, num2: float) -> float:
     if num2 == 0:                                # cannot be divided by zero
         return float('NaN')
     return num1 / num2
 
 
-# the function gets one parameter and return its factorial
+##
+# @brief Factorial of the number ( num! )
+#
+# @param num The number of which factorial will be calculated
+# @return Returns the factorial of the number
+#
 def our_fact(num: int) -> float:                # factorial can only be called with a positive integer
     if num < 0:
         return float('NaN')
@@ -29,15 +68,26 @@ def our_fact(num: int) -> float:                # factorial can only be called w
         factorial = factorial * i
     return factorial
 
-
-# the function gets two parameters and returns num^(exp)
+##
+# @brief Raising to a power ( num^exp )
+#
+# @param num Base of a power
+# @param exp Exponent of a power
+# @return Returns the value of a power
+#
 def our_pow(num: float, exp: float) -> float:
     if (num == 0) & (exp < 0):
         return float('NaN')                         # cannot call with num1 == 0 & exp < 0
     return num ** exp
 
 
-# the function gets two parameters and returns num1√(num2)
+##
+# @brief Extraction of a root ( num1√num2 )
+#
+# @param num1 Index (degree) of the root
+# @param num2 Radicand
+# @return Returns the value of the root
+#
 def our_sqrt(num1: float, num2: float) -> float:
     if num1 == 0:                                   # cannot call with num1 == 0
         return float('NaN')
@@ -47,7 +97,12 @@ def our_sqrt(num1: float, num2: float) -> float:
     return root
 
 
-# the function gets a number and returns its absolute value
+##
+# @brief Absolute value ( |num| )
+#
+# @param num The number of which the absolute value will be calculated
+# @return Returns the absolute value of the number
+#
 def our_abs(num: float) -> float:
     if num >= 0:
         return num

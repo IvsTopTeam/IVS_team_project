@@ -1,3 +1,11 @@
+##
+# @file LibraryTests.py
+# @author Tadeáš Kozub
+# @date 27.4.2020
+# @brief Tests suit for mathematic library
+#
+
+
 import unittest
 import math
 

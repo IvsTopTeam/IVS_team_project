@@ -1,6 +1,3 @@
-import calc_gui
-
-
 ##
 # @mainpage Program Documentation
 # @tableofcontents
@@ -20,6 +17,8 @@ import calc_gui
 # @file calc_main.py
 # @brief Essential file building the program
 #
+
+import calc_gui
 
 app = calc_gui.QApplication([])
 window = calc_gui.GUI()

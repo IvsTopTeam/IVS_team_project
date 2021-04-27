@@ -1,8 +1,8 @@
 ##
 # @file calc_engine.py
 # @author David Novak
-# @date 27.4. 2020
-# @brief Module with functions, which are used in GUI class methods to do the calculator job
+# @date 27.4.2020
+# @brief Module with functions, which are used in GUI class methods to process functionality of calculator
 #
 
 import our_library as lib
