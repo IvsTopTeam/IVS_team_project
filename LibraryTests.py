@@ -1,4 +1,5 @@
 import unittest
+import math
 
 from our_library import *
 
@@ -44,7 +45,7 @@ class TestAdd(unittest.TestCase):
 class TestSub(unittest.TestCase):
     def test_small_nums(self):
         result = our_sub(10, 30)
-        self.assertEqual(40, result)
+        self.assertEqual(-20, result)
 
     def test_big_nums(self):
         result = our_sub(30_000_000, 10_000_000)
@@ -64,7 +65,7 @@ class TestSub(unittest.TestCase):
 
     def test_float_large(self):
         result = our_sub(50_000.7, 30_000.5)
-        self.assertEqual(20_000.2, result)
+        self.assertAlmostEqual(20_000.2, result)
 
 
 class TestMul(unittest.TestCase):
@@ -110,6 +111,10 @@ class TestDiv(unittest.TestCase):
         result = our_div(-20_000_000, 1000)
         self.assertEqual(-20_000, result)
 
+    def test_zero(self):
+        result = our_div(1_000, 0)
+        self.assertTrue(math.isnan(result))
+
     def test_float_small(self):
         result = our_div(0.002, 0.001)
         self.assertEqual(2, result)
@@ -133,8 +138,8 @@ class TestFact(unittest.TestCase):
             our_fact(2.5)
 
     def test_negative(self):
-        with self.assertRaises(Exception):
-            our_fact(-10)
+        result = our_fact(-10)
+        self.assertTrue(math.isnan(result))
 
 
 class TestPow(unittest.TestCase):
@@ -160,7 +165,7 @@ class TestPow(unittest.TestCase):
 
     def test_float_large(self):
         result = our_pow(10.5, 3.4)
-        self.assertAlmostEqual(2_965.129166883078114339313070216, result, 20)
+        self.assertAlmostEqual(2_965.129166883078114339313070216, result)
 
 
 class TestSqrt(unittest.TestCase):
@@ -170,7 +175,7 @@ class TestSqrt(unittest.TestCase):
 
     def test_large_nums(self):
         result = our_sqrt(3, 1_000_000)
-        self.assertEqual(100, result)
+        self.assertAlmostEqual(100, result)
 
     def test_large_negative(self):
         result = our_sqrt(-10, 1000)
@@ -178,11 +183,19 @@ class TestSqrt(unittest.TestCase):
 
     def test_float_small(self):
         result = our_sqrt(0.2, 0.001)
-        self.assertAlmostEqual(0.000000000000001, result, 20)
+        self.assertAlmostEqual(0.000000000000001, result)
 
     def test_float_large(self):
         result = our_sqrt(3.4, 100.8)
-        self.assertAlmostEqual(3.8837663777761385677004720432811, result, 20)
+        self.assertAlmostEqual(3.8837663777761385677004720432811, result)
+
+    def test_zero_1(self):
+        result = our_sqrt(0, -1)
+        self.assertTrue(math.isnan(result))
+
+    def test_zero_2(self):
+        result = our_sqrt(-1, 0)
+        self.assertTrue(math.isnan(result))
 
 
 class TestAbs(unittest.TestCase):
@@ -206,7 +219,7 @@ class TestAbs(unittest.TestCase):
         result = our_abs(-10)
         self.assertEqual(10, result)
 
-    def test_flaot(self):
+    def test_float(self):
         result = our_abs(140.522222)
         self.assertAlmostEqual(140.522222, result, 20)
 
