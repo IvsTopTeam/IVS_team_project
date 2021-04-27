@@ -37,7 +37,7 @@ def our_pow(num: float, exp: float) -> float:
     return num ** exp
 
 
-# fthe function gets two parameters and returns num1√(num2)
+# the function gets two parameters and returns num1√(num2)
 def our_sqrt(num1: float, num2: float) -> float:     # cannot call with num1 == 0
     if num1 == 0:
         return float('NaN')
