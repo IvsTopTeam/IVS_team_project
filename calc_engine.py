@@ -61,19 +61,18 @@ def evaluation(float_result, string_main, operation):
     elif operation == "×":
         result = lib.our_mul(float_result, float(string_main))
     elif operation == "÷":
-        if float(string_main) == 0:     # division by 0 error
-            return "Math Error", result
         result = lib.our_div(float_result, float(string_main))
     elif operation == "√":
-        if float_result == 0:     # zero root error
-            return "Math Error", result
         result = lib.our_sqrt(float_result, float(string_main))
     elif operation == "ⁿ":
         try:
             result = lib.our_pow(float_result, float(string_main))
         except OverflowError:
             return "Too large!", result
-    return "ok", result
+    if result == float('NaN'):
+        return "Math Error", result
+    else:
+        return "ok", result
 
 
 ##
@@ -94,7 +93,7 @@ def clicked_number(string, digit):
     elif string == "0" and digit == "0":
         string = "0"
     elif string == "0" and digit != "0":
-        string = number
+        string = digit
     elif string != "0" and len(string) < display_limit:
         string = string + digit
     elif string != "0" and len(string) >= display_limit:
