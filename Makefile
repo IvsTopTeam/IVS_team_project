@@ -9,7 +9,7 @@ FILE_NAME=xnovak2x_xbubak01_xkozub06_xklime47
 
 .PHONY:
 	all
-	init
+	setup
 	pack
 	clean
 	test
@@ -22,8 +22,7 @@ FILE_NAME=xnovak2x_xbubak01_xkozub06_xklime47
 all: setup run
 
 setup:
-    sudo apt-get -y update
-    sudo apt-get install python3-pip
+	sudo apt-get install python3-pip
 	sudo -H pip3 install pyqt5
 	sudo -H pip3 install pyqt5-sip
 	sudo -H pip3 install pyinstaller
@@ -49,7 +48,7 @@ clean:
 	rm -rf __pycache__ $(DOC)
 
 cleanall: clean
-    rm -rf ../../IVS_team_project
+	rm -rf ../../IVS_team_project
 
 test: $(TESTS) $(LIBRARY)
 	python3 $(TESTS)
