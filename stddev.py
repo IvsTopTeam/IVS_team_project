@@ -1,5 +1,7 @@
 from our_library import *
 
+print("Enter numbers separated by white space:")
+
 
 def dev():
     num_list = list(map(int, input().split()))      # read the numbers
@@ -20,6 +22,7 @@ def dev():
     total_help = our_mul(count, our_pow(average, 2))            # N*(avg^2)
     total = our_sqrt(2, our_div(our_sub(sum_pow, total_help), our_sub(count, 1)))
 
+    print("Standard deviation:")
     print(round(total, 3))
 
 
