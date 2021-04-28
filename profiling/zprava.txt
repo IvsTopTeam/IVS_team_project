@@ -1,0 +1,12 @@
+We are profiling program with input of 10, 100 and 1000 numbers.
+Output of profiling is in two-page pdf (vystup.pdf).
+
+On the first page is profiling using cProfile. 
+Most called function in all cases are our_add and our_pow from our_library. 
+
+On the second page is visualization using pyinstrument (https://github.com/joerick/pyinstrument).
+Profiling interval is set to 0,0000001.
+From picture of input 1000 numbers we can clearly see that the most time spent is on functions our_add and our_pow.
+ 
+For optimization we must focus on these 2 functions and their calls in our program stddev.py. 
+For example we can optimize the main function by not calculating the average of input numbers in start.
