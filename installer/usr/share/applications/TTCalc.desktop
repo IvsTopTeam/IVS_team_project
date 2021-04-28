@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.1.0
+Type=Application
+Terminal=false
+Exec='/usr/bin/ttcalc'
+Name=TT Calc
+Icon=/usr/share/topteam-calculator/ttc_logo.png
+Comment=A simple calculator app.
+Path=
+StartupNotify=false
+Categories=Office
