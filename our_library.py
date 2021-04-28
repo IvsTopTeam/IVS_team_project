@@ -2,7 +2,7 @@
 # @file our_library.py
 # @author Alena Klimecká
 # @date 27.4.2020
-# @brief Mathematic library of the calculator
+# @brief math library of the calculator
 #
 
 
@@ -46,6 +46,7 @@ def our_mul(num1: float, num2: float) -> float:
 #
 # @param num1 First number of a division (dividend)
 # @param num2 Second number of a division (divisor)
+# @exception "NaN" if divisor happens to be zero
 # @return Returns the quotient of two numbers
 #
 def our_div(num1: float, num2: float) -> float:
@@ -58,6 +59,7 @@ def our_div(num1: float, num2: float) -> float:
 # @brief Factorial of the number ( num! )
 #
 # @param num The number of which factorial will be calculated
+# @exception "NaN" if the number is negative
 # @return Returns the factorial of the number
 #
 def our_fact(num: int) -> float:                # factorial can only be called with a positive integer
@@ -73,6 +75,7 @@ def our_fact(num: int) -> float:                # factorial can only be called w
 #
 # @param num Base of a power
 # @param exp Exponent of a power
+# @exception "NaN" if base is zero and exponent negative at once
 # @return Returns the value of a power
 #
 def our_pow(num: float, exp: float) -> float:
@@ -86,6 +89,7 @@ def our_pow(num: float, exp: float) -> float:
 #
 # @param num1 Index (degree) of the root
 # @param num2 Radicand
+# @exception "NaN" if degree of the root is equal to zero, or if it is negative and radicand is zero
 # @return Returns the value of the root
 #
 def our_sqrt(num1: float, num2: float) -> float:
