@@ -1,9 +1,19 @@
+##
+# @file LibraryTests.py
+# @author Tadeáš Kozub
+# @date 27.4.2020
+# @brief Test suit for math library
+#
+
+
 import unittest
 import math
 
 from our_library import *
 
-
+##
+# @brief Group of tests focused on addition
+#
 class TestAdd(unittest.TestCase):
     def test_basic(self):
         result = our_add(30, 50)
@@ -41,7 +51,9 @@ class TestAdd(unittest.TestCase):
         result = our_add(-0.02, - 0.005)
         self.assertEqual(-0.025, result)
 
-
+##
+# @brief Group of tests focused on substitution
+#
 class TestSub(unittest.TestCase):
     def test_small_nums(self):
         result = our_sub(10, 30)
@@ -67,7 +79,9 @@ class TestSub(unittest.TestCase):
         result = our_sub(50_000.7, 30_000.5)
         self.assertAlmostEqual(20_000.2, result)
 
-
+##
+# @brief Group of tests focused on multiplication
+#
 class TestMul(unittest.TestCase):
     def test_small_nums(self):
         result = our_mul(10, 30)
@@ -93,7 +107,9 @@ class TestMul(unittest.TestCase):
         result = our_mul(50_000.7, 30_000.5)
         self.assertEqual(1_500_046_000.35, result)
 
-
+##
+# @brief Group of tests focused on division
+#
 class TestDiv(unittest.TestCase):
     def test_small_nums(self):
         result = our_div(50, 10)
@@ -123,7 +139,9 @@ class TestDiv(unittest.TestCase):
         result = our_div(50_000.7, 30_000.5)
         self.assertAlmostEqual(1.6666622222962950617489708504858, result, 20)
 
-
+##
+# @brief Group of tests that checks the right output of a factorial function
+#
 class TestFact(unittest.TestCase):
     def test_small_num(self):
         result = our_fact(4)
@@ -141,7 +159,9 @@ class TestFact(unittest.TestCase):
         result = our_fact(-10)
         self.assertTrue(math.isnan(result))
 
-
+##
+# @brief Group of tests that checks the right output of power function
+#
 class TestPow(unittest.TestCase):
     def test_small_nums(self):
         result = our_pow(10, 3)
@@ -168,6 +188,9 @@ class TestPow(unittest.TestCase):
         self.assertAlmostEqual(2_965.129166883078114339313070216, result)
 
 
+##
+# @brief Group of tests that checks the right output of the extraction of root
+#
 class TestSqrt(unittest.TestCase):
     def test_small_nums(self):
         result = our_sqrt(2, 100)
@@ -198,6 +221,9 @@ class TestSqrt(unittest.TestCase):
         self.assertTrue(math.isnan(result))
 
 
+##
+# @brief Group of tests that checks the right output of the function for absolute value
+#
 class TestAbs(unittest.TestCase):
     def test_small_num(self):
         result = our_abs(2)

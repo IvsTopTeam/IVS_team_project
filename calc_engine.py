@@ -1,8 +1,8 @@
 ##
 # @file calc_engine.py
 # @author David Novak
-# @date 27.4. 2020
-# @brief Module with functions, which are used in GUI class methods to do the calculator job
+# @date 27.4.2020
+# @brief Module with functions, which are used in GUI class methods to process functionality of calculator
 #
 
 import our_library as lib
@@ -13,7 +13,7 @@ dec_round = 2           # implementation limit of number of decimal digits to ro
 ##
 # @brief                This function provides proper displaying of numbers
 # @param float_result   float number to display
-# @return num_str       string with number to display
+# @return               string with number to display
 #
 def display_num(float_result):
     num_str = str(round(float_result, dec_round))
@@ -46,8 +46,8 @@ def isfloat(string):
 # @param float_result   first operand
 # @param string_main    second operand
 # @param operation      operation to do with two operands
-# @return error         error message if there some error occured, or "ok" if ok
-# @return result        result of the operation
+# @return               - error message if any error occures, or "ok" if not
+# @return               - result of the operation
 #
 def evaluation(float_result, string_main, operation):
     result = 0
