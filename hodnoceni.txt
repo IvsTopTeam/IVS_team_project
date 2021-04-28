@@ -1,0 +1,4 @@
+xnovak2x 100 (GUI a program)
+xkozub06 100 (testy, instalátor, mockup)
+xbubak01 100 (Makefile, dokumentace)
+xklime47 100 (profiling, mat. knihovna)

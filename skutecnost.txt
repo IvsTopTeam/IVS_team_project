@@ -1,0 +1,7 @@
+Drobné zpoždění oproti plánu, ale díky rezervě relativně bez problémů stíháme.
+
+Některé věci, například dokumentace nebo makefile bylo možné zpracovat až u konce, bylo to totiž závislé na práci ostatních víc, než jsme původně odhadovali.
+
+Napsat matematickou knihovnu bylo jednodušší než jsme čekali, proto jsme museli udělat drobnné přerozdělení práce.
+
+Podcenění obtížnosti vytvoření debianového balíčku (instalátoru)
