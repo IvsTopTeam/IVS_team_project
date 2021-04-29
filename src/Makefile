@@ -25,7 +25,6 @@ setup:
 	sudo apt-get install python3-pip
 	sudo -H pip3 install pyqt5
 	sudo -H pip3 install pyqt5-sip
-	sudo -H pip3 install pyinstaller
 
 
 pack: clean
@@ -63,6 +62,7 @@ profile: $(PROFILE)
 	python3 $(PROFILE)
 
 installer: $(INSTALL)
+	sudo -H pip3 install pyinstaller
 	chmod +x $(INSTALL)
 	bash $(INSTALL)
 
