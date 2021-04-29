@@ -1,0 +1,6 @@
+Package: topteam-calc
+Version: 0.1.0
+Maintainer: TopTeam Inc
+Architecture: all
+Description: Calculator application by TopTeam
+Depends: python3-pip

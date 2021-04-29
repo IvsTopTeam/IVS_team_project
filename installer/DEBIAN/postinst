@@ -1,0 +1,3 @@
+#!/bin/sh
+sudo apt-get install qt5-default
+chmod +x /usr/bin/ttcalc
