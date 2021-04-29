@@ -3,7 +3,7 @@
 pyinstaller calc_main.py -F
 cp -f ./specfile/calc_main.spec calc_main.spec
 pyinstaller calc_main.spec
-mkdir ..installer/usr/bin
+mkdir ../installer/usr/bin
 cp -f ./dist/topteam-calc ../installer/usr/bin/
 rm -rf dist
 rm -rf build
