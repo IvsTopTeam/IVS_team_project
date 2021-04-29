@@ -25,7 +25,7 @@ setup:
 	sudo apt-get install python3-pip
 	sudo -H pip3 install pyqt5
 	sudo -H pip3 install pyqt5-sip
-
+	sudo apt-get install qt5-default
 
 pack: clean
 
