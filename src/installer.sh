@@ -8,6 +8,7 @@ rm -rf dist
 rm -rf build
 rm calc_main.spec
 cd ..
+chmod +x ./installer/DEBIAN/postinst
 dpkg --build ./installer
 mv installer.deb topteamcalc-1.0.deb
 mv topteamcalc-1.0.deb ./installer
