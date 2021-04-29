@@ -3,7 +3,7 @@
 pyinstaller calc_main.py -F
 cp -f ./specfile/calc_main.spec calc_main.spec
 pyinstaller calc_main.spec
-cp -f ./dist/ttcalc ../installer/usr/bin
+cp -f ./dist/ttcalc ../installer/usr/bin/
 rm -rf dist
 rm -rf build
 rm calc_main.spec
