@@ -36,7 +36,8 @@ pack: clean
 	mv ./$(DOC) ../../$(FILE_NAME)
 
 	make installer
-	mv ../installer/$(INSTALLER) ../../$(FILE_NAME)
+	mkdir ../../$(FILE_NAME)/install
+	mv ../installer/$(INSTALLER) ../../$(FILE_NAME)/install
 
 	cd ../../ && zip -r $(FILE_NAME).zip $(FILE_NAME)
 
