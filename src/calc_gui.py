@@ -27,7 +27,7 @@ class GUI(QWidget):
         super(GUI, self).__init__()
         directory = os.path.dirname(os.path.abspath(__file__))  # its retarded and cant load the ui file, it has to
         gui_path = os.path.join(directory, 'gui.ui')            # calculate and pass the absolute path to gui.ui file
-        uic.loadUi("gui_path", self)
+        uic.loadUi(gui_path, self)
 
         # makes buttons to work
         button = self.findChild(QPushButton, 'pushButton_0')
