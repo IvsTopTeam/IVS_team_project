@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import QWidget, QPushButton, QLineEdit, QApplication
 from PyQt5 import uic
 import calc_engine as eng
 import our_library as lib
+import os
 
 
 ##
