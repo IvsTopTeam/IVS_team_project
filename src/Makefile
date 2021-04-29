@@ -63,5 +63,6 @@ profile: $(PROFILE)
 	python3 $(PROFILE)
 
 installer: $(INSTALL)
+	chmod +x $(INSTALL)
 	bash $(INSTALL)
 
