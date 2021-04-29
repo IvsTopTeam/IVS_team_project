@@ -7,7 +7,7 @@
 # @subsection Documentation
 # In this documentation you can find all the elements that our project is composed of.
 #
-# For quick access click on <a href="file:///home/xbubak01/Documents/IVS/project2/IVS_team_project/doc/html/files.html">Files</a>,
+# For quick access click on 'Files' in menu,
 # choose one that you are interested in and learn more about all the functions, variables, etc. used.
 #
 # It includes mathematical library, main function structure with GUI essentials and tests having set the foundation of program development (TDD).
