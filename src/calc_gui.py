@@ -24,9 +24,9 @@ class GUI(QWidget):
     #
     def __init__(self):
         super(GUI, self).__init__()
-        # directory = os.path.dirname(os.path.abspath(__file__))  # if its retarded and cant load the ui file, it has to
-        # gui_path = os.path.join(directory, 'gui.ui')             # calculate and pass the absolute path to gui.ui file
-        uic.loadUi("gui.ui", self)
+        directory = os.path.dirname(os.path.abspath(__file__))  # its retarded and cant load the ui file, it has to
+        gui_path = os.path.join(directory, 'gui.ui')            # calculate and pass the absolute path to gui.ui file
+        uic.loadUi("gui_path", self)
 
         # makes buttons to work
         button = self.findChild(QPushButton, 'pushButton_0')
@@ -243,7 +243,6 @@ class GUI(QWidget):
             self.result = float(self.lineEdit_main.text())      # sets the number into result
             # self.first = False
         self.result = lib.our_abs(self.result)                  # call abs function on result
-        print(self.result)
         self.first = True
         self.last_operation = "none"
         self.lineEdit_top.setText(" ")                              # resets top display text
