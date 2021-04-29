@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>TopTeam calculator</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../installer/usr/share/topteam-calculator/ttc_logo.png</normaloff>../installer/usr/share/topteam-calculator/ttc_logo.png</iconset>
+  </property>
   <property name="toolTipDuration">
    <number>-6</number>
   </property>
